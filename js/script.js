@@ -15,8 +15,7 @@ function initVue() {
       'posters':'',
       'selects': ['Rock', 'Pop', 'Jazz', 'Metal'],
       'select': '',
-
-
+      'year': '',
     },
     mounted: function() {
 
@@ -39,7 +38,9 @@ function initVue() {
         else{
           filterPosters = this.posters;
         }
-        return filterPosters;
+
+        return filterPosters
+
       }
     }
 
