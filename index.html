@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email list</title>
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- VueJs -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- VueAXIOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <!-- MY JS -->
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+
+      <div id="app" class="container">
+        <div class="select-genre">
+          <label>Filter for Type:</label>
+          <select v-model='search'>
+            <option v-for="(select, index) in selects" :key='index'>{{select}}</option>
+          </select>
+        </div>
+          <ul class="">
+            <li v-for="poster in posters" class="poster">
+              <div v-if='poster.genre == selects'>
+                <img :src="poster.poster" alt="">
+                <h2>Title: {{poster.title}}</h2>
+                <h3>Author: {{poster.author}}</h3>
+                <h3>Genre: {{poster.genre}}</h3>
+                <h3>Year: {{poster.year}}</h3>
+              </div>
+            </li>
+          </ul>
+      </div>
+
+  </body>
+</html>
