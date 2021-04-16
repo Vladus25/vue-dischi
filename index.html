@@ -23,14 +23,15 @@
       <div id="app" class="container">
         <div class="select-genre">
           <label>Filter for Type:</label>
-          <select v-model='search'>
-            <option v-for="(select, index) in selects" :key='index'>{{select}}</option>
+          <select @change="filter()" v-model="select">
+            <option value='' selected>All</option>
+            <option v-for="(option, index) in selects" :key='index'>{{option}}</option>
           </select>
         </div>
           <ul class="">
-            <li v-for="poster in posters" class="poster">
-              <div v-if='poster.genre == selects'>
-                <img :src="poster.poster" alt="">
+            <li v-for="poster in filter()" class="poster">
+              <div>
+                <img :src="poster.poster">
                 <h2>Title: {{poster.title}}</h2>
                 <h3>Author: {{poster.author}}</h3>
                 <h3>Genre: {{poster.genre}}</h3>

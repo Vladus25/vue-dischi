@@ -6,8 +6,9 @@ function initVue() {
     data: {
 
       'posters':'',
-      'search': "",
-      'selects': ['All', 'Rock', 'Pop', 'Jazz', 'Metal'],
+      'selects': ['Rock', 'Pop', 'Jazz', 'Metal'],
+      'select': '',
+
 
     },
     mounted: function() {
@@ -22,6 +23,17 @@ function initVue() {
     },
     methods: {
 
+      filter: function () {
+        let filterPosters = [];
+        const posts = this.posters;
+        if (this.select != '') {
+          filterPosters = posts.filter((post) => post.genre == this.select);
+        }
+        else{
+          filterPosters = this.posters;
+        }
+        return filterPosters;
+      }
     }
 
   });
