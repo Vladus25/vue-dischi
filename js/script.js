@@ -12,7 +12,7 @@ function initVue() {
     el: '#app',
     data: {
 
-      'posters':'',
+      'posters':[],
       'selects': ['Rock', 'Pop', 'Jazz', 'Metal'],
       'select': '',
       'year': '',
@@ -27,7 +27,7 @@ function initVue() {
           this.error = e;
         });
     },
-    methods: {
+    computed: {
 
       filter: function () {
         let filterPosters = [];
@@ -41,7 +41,24 @@ function initVue() {
 
         return filterPosters
 
+      },
+      order: function () {
+          const order = this.filter.sort(
+          function (a, b) {
+            if (a.year < b.year) {
+              return -1;
+            }
+            else if (a.year > b.year) {
+              return 1;
+            }
+              return 0;
+            }
+
+          );
+
+          return order;
       }
+
     }
 
   });

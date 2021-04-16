@@ -23,13 +23,13 @@
       <div id="app" class="container">
         <div class="select-genre">
           <label>Filter for Type:</label>
-          <select @change="filter()" v-model="select">
+          <select v-model="select">
             <option value='' selected>All</option>
             <option v-for="(option, index) in selects" :key='index'>{{option}}</option>
           </select>
         </div>
-          <ul class="">
-            <li v-for="poster in filter()" class="poster">
+          <ul>
+            <li v-for="poster in order" class="poster">
               <div>
                 <img :src="poster.poster">
                 <h2>Title: {{poster.title}}</h2>
