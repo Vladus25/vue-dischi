@@ -25,7 +25,7 @@
           <label>Filter for Type:</label>
           <select v-model="select">
             <option value='' selected>All</option>
-            <option v-for="(option, index) in selects" :key='index'>{{option}}</option>
+            <option v-for="genre in genres">{{genre}}</option>
           </select>
         </div>
           <ul>
